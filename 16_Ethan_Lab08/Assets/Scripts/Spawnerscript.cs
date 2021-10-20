@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Spawnerscript : MonoBehaviour
 {
-    public GameObject SpawnObject;
+    public GameObject[] SpawnObject;
     float PositionY;
-
+    int n;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +23,9 @@ public class Spawnerscript : MonoBehaviour
 
     void SpawnObjects()
     {
+        n = Random.Range(0, SpawnObject.Length);
         PositionY = Random.Range(4, -4f);
         this.transform.position = new Vector3(transform.position.x, PositionY, transform.position.z);
-        Instantiate(SpawnObject, transform.position, transform.rotation);
+        Instantiate(SpawnObject[n], transform.position, transform.rotation);
     }
 }
